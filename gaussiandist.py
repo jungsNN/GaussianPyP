@@ -209,3 +209,7 @@ class Gaussian():
         """
 
         return "mean {}, standard deviation {}".format(self.mean, self.stdev)
+
+
+if __name__ == '__main__':
+    main()
