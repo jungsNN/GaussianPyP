@@ -92,7 +92,7 @@ class Gaussian():
 
         self.data = data_list
         self.mean = self.calculate_mean()
-        self.stdev = self.calculate_stdev()
+        self.stdev = self.calculate_stdev(sample)
 
 
     def plot_histogram(self, file_name="Data List"):
@@ -124,7 +124,7 @@ class Gaussian():
             float: probability density function output
         """
 
-        return (1.0/(self.stdev * sqrt(2*math.pi))) * math.exp(-0.5*((x-self.mean) / self.stdev)**2)
+        return (1.0/(self.stdev * math.sqrt(2*math.pi))) * math.exp(-0.5*((x-self.mean) / self.stdev)**2)
 
 
     def plot_histogram_pdf(self, n_spaces = 50):
