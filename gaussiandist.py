@@ -18,6 +18,7 @@ class Gaussian():
         self.data = []
 
 
+
     def calculate_mean(self):
 
         """Method to calculate the mean of the data set.
@@ -82,6 +83,7 @@ class Gaussian():
 
         """
 
+        # Open file_name and append values to data_list
         with open(file_name) as file:
             data_list = []
             line = file.readline()
@@ -95,7 +97,7 @@ class Gaussian():
         self.stdev = self.calculate_stdev(sample)
 
 
-    def plot_histogram(self, file_name="Data List"):
+    def plot_histogram(self):
         """Method to output a histogram of the instance variable data using
         matplotlib pyplot library.
 
@@ -147,21 +149,23 @@ class Gaussian():
         min_range = min(self.data)
         max_range = max(self.data)
 
+         # calculates the interval between x values
         interval = 1.0 * (max_range - min_range) / n_spaces
 
         x = []
         y = []
 
+        # calculate the x values to visualize
         for i in range(n_spaces):
             tmp = min_range + interval*i
             x.append(tmp)
             y.append(self.pdf(tmp))
 
+        # make the plots
         fig, axes = plt.subplots(2,sharex=True)
         fig.subplots_adjust(hspace=.5)
         axes[0].hist(self.data, density=True)
-        axes[0].set_title('Normed Histogram of Data, µ = {} σ = {}'
-                          .format(mu, sigma))
+        axes[0].set_title('Normed Histogram of Data')
         axes[0].set_ylabel('Density')
 
         axes[1].plot(x, y)
@@ -170,3 +174,38 @@ class Gaussian():
         plt.show()
 
         return x, y
+
+
+    def __add__(self, other):
+
+        """Magic method to add together two Gaussian distributions
+
+        Args:
+            other (Gaussian): Gaussian instance
+
+        Returns:
+            Gaussian: Gaussian distribution
+
+        """
+
+        result = Gaussian()
+
+        result.mean = self.mean + other.mean
+        result.stdev = math.sqrt(self.stdev**2 + other.stdev**2)
+
+        return result
+
+
+    def __repr__(self):
+
+        """Magic method to output the characteristics of the Gaussian instance
+
+        Args:
+            None
+
+        Returns:
+            string: characteristics of the Gaussian
+
+        """
+
+        return "mean {}, standard deviation {}".format(self.mean, self.stdev)
