@@ -1,7 +1,6 @@
 
 import unittest
-
-from Gaussiandistribution import Gaussian
+from gaussiandist import Gaussian
 
 
 class TestGaussianClass(unittest.TestCase):
@@ -40,6 +39,8 @@ class TestGaussianClass(unittest.TestCase):
 
         self.assertEqual(str(gaussian_one), "mean 25, standard deviation 3")
 
+
 if __name__ == '__main__':
     unittest.main()
+
     # Unit tests to check your solution
