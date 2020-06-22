@@ -158,7 +158,7 @@ class Binomial(Distribution):
 
         result = Binomial()
         result.p = self.p
-        result.n = self.p + other.n
+        result.n = self.n + other.n
         result.calculate_mean()
         result.calculate_stdev()
 
