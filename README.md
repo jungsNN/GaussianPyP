@@ -29,7 +29,9 @@ https://pypi.org/project/problystatpy/#files
 ```
 $ pip install --user problystatpy
 ```
+
 		OR
+		
 ```
 $ python3 -m pip install --user problystatpy
 ```
