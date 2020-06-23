@@ -21,7 +21,15 @@ Python package for computing and visualizing various probability distributions
 ### Installation
 
 :link: Instant file download link:
+
 https://pypi.org/project/problystatpy/#files
+
+
+
+:link: PyPi project page:
+
+https://pypi.org/project/problystatpy/
+
 
 
 
